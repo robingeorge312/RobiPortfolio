@@ -1,29 +1,42 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Palette, Layers, Package, Instagram } from 'lucide-react';
+import { PenTool, BadgeCheck, Share2, Lightbulb, Box,Layout } from 'lucide-react';
 
 const services = [
   {
-    icon: Palette,
-    title: 'Brand Design',
-    description: 'Creating cohesive brand identities that capture your essence and connect with your audience.',
+    icon: PenTool,
+    title: 'Logo Design',
+    description: 'Creating unique and memorable logos that capture a brand’s essence and make a lasting first impression.',
   },
   {
-    icon: Layers,
+    icon: BadgeCheck,
+    title: 'Brand Identity Design',
+    description: 'Building complete visual systems that define how a brand looks, feels, and communicates across all platforms.',
+  },
+  {
+    icon: Share2,
+    title: 'Social Media Design',
+    description: 'Developing cohesive, scroll-stopping creatives that strengthen your brand presence online.',
+  },
+    {
+    icon: Layout,
     title: 'Poster Design',
-    description: 'Eye-catching posters that grab attention and communicate messages with visual impact.',
+    description: 'Creating visually striking posters that capture attention and emotion at first glanc',
   },
   {
-    icon: Package,
+    icon: Lightbulb,
+    title: 'Creative Direction',
+    description: 'Guiding ideas from concept to execution with a focus on storytelling and strategy.',
+  },
+  {
+    icon: Box,
     title: 'Packaging Design',
-    description: 'Innovative packaging solutions that stand out on shelves and enhance brand experience.',
+    description: 'Designing packaging that not only looks beautiful but communicates the story and soul of your brand.',
   },
-  {
-    icon: Instagram,
-    title: 'Social Media Creatives',
-    description: 'Engaging social content designed to boost your digital presence and engagement.',
-  },
+ 
+
+ 
 ];
 
 const Services = () => {
