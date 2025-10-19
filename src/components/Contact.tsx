@@ -212,18 +212,6 @@ const Contact = () => {
             </motion.div>
           </motion.div>
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 1 }}
-          className="mt-20 text-center"
-        >
-          <div className="h-px w-full bg-gradient-to-r from-transparent via-yellow-400 to-transparent mb-8" />
-          <p className="text-gray-500">
-            © 2024 Robin G. All rights reserved.
-          </p>
-        </motion.div>
       </div>
     </div>
   );

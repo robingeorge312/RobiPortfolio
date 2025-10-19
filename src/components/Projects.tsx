@@ -1,9 +1,9 @@
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'framer-motion';
-import { useRef } from 'react';
-import { ExternalLink } from 'lucide-react';
+import { useRef, useState } from 'react';
+import { ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react';
 
-const projects = [
+const allProjects = [
   {
     title: 'Urban Brand Identity',
     category: 'Brand Design',
@@ -34,14 +34,80 @@ const projects = [
     category: 'Packaging Design',
     color: 'from-yellow-400/20 to-teal-400/20',
   },
+  {
+    title: 'Fashion Brand Rebrand',
+    category: 'Brand Design',
+    color: 'from-yellow-400/20 to-red-400/20',
+  },
+  {
+    title: 'Concert Poster Collection',
+    category: 'Poster Design',
+    color: 'from-yellow-400/20 to-cyan-400/20',
+  },
+  {
+    title: 'Craft Beer Packaging',
+    category: 'Packaging Design',
+    color: 'from-yellow-400/20 to-amber-400/20',
+  },
+  {
+    title: 'Wellness Brand Identity',
+    category: 'Brand Design',
+    color: 'from-yellow-400/20 to-emerald-400/20',
+  },
+  {
+    title: 'Art Exhibition Poster',
+    category: 'Poster Design',
+    color: 'from-yellow-400/20 to-violet-400/20',
+  },
+  {
+    title: 'Gourmet Food Packaging',
+    category: 'Packaging Design',
+    color: 'from-yellow-400/20 to-lime-400/20',
+  },
 ];
 
 const Projects = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [currentPage, setCurrentPage] = useState(0);
+  const [direction, setDirection] = useState(0);
+
+  const itemsPerPage = 6;
+  const totalPages = Math.ceil(allProjects.length / itemsPerPage);
+  const startIndex = currentPage * itemsPerPage;
+  const currentProjects = allProjects.slice(startIndex, startIndex + itemsPerPage);
+
+  const nextPage = () => {
+    if (currentPage < totalPages - 1) {
+      setDirection(1);
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const prevPage = () => {
+    if (currentPage > 0) {
+      setDirection(-1);
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  const slideVariants = {
+    enter: (direction: number) => ({
+      x: direction > 0 ? 1000 : -1000,
+      opacity: 0,
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+    },
+    exit: (direction: number) => ({
+      x: direction < 0 ? 1000 : -1000,
+      opacity: 0,
+    }),
+  };
 
   return (
-    <div className="py-32 px-6 relative" ref={ref}>
+    <div className="py-32 px-6 relative overflow-hidden" ref={ref}>
       <div className="container mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -78,60 +144,130 @@ const Projects = () => {
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
+        <div className="relative">
+          <AnimatePresence mode="wait" custom={direction}>
             <motion.div
-              key={project.title}
-              initial={{ opacity: 0, y: 50 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              key={currentPage}
+              custom={direction}
+              variants={slideVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={{ duration: 0.5, ease: "easeInOut" }}
+              className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
             >
-              <motion.div
-                className="group relative aspect-square rounded-2xl overflow-hidden cursor-pointer"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.3 }}
-              >
-                <div className={`absolute inset-0 bg-gradient-to-br ${project.color}`} />
-
-                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-300" />
-
+              {currentProjects.map((project, index) => (
                 <motion.div
-                  className="absolute inset-0 border-2 border-yellow-400/0 group-hover:border-yellow-400/50 transition-colors duration-300 rounded-2xl"
-                  style={{
-                    boxShadow: '0 0 0 rgba(255, 211, 0, 0)',
-                  }}
-                  whileHover={{
-                    boxShadow: '0 0 30px rgba(255, 211, 0, 0.5)',
-                  }}
-                />
-
-                <div className="absolute inset-0 flex flex-col items-center justify-center p-6">
+                  key={`${project.title}-${currentPage}`}
+                  initial={{ opacity: 0, y: 50 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                >
                   <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileHover={{ opacity: 1, y: 0 }}
-                    className="text-center"
+                    className="group relative aspect-square rounded-2xl overflow-hidden cursor-pointer"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.3 }}
                   >
-                    <h3 className="text-2xl font-bold text-white mb-2">
-                      {project.title}
-                    </h3>
-                    <p className="text-yellow-400 font-medium">
-                      {project.category}
-                    </p>
-                  </motion.div>
+                    <div className={`absolute inset-0 bg-gradient-to-br ${project.color}`} />
 
-                  <motion.div
-                    className="absolute top-4 right-4 w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
-                    style={{
-                      boxShadow: '0 0 20px rgba(255, 211, 0, 0.6)',
-                    }}
-                  >
-                    <ExternalLink className="text-black" size={20} />
-                  </motion.div>
-                </div>
+                    <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-300" />
 
-                <div className="absolute bottom-0 left-0 right-0 h-1 bg-yellow-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
-              </motion.div>
+                    <motion.div
+                      className="absolute inset-0 border-2 border-yellow-400/0 group-hover:border-yellow-400/50 transition-colors duration-300 rounded-2xl"
+                      style={{
+                        boxShadow: '0 0 0 rgba(255, 211, 0, 0)',
+                      }}
+                      whileHover={{
+                        boxShadow: '0 0 30px rgba(255, 211, 0, 0.5)',
+                      }}
+                    />
+
+                    <div className="absolute inset-0 flex flex-col items-center justify-center p-6">
+                      <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileHover={{ opacity: 1, y: 0 }}
+                        className="text-center"
+                      >
+                        <h3 className="text-2xl font-bold text-white mb-2">
+                          {project.title}
+                        </h3>
+                        <p className="text-yellow-400 font-medium">
+                          {project.category}
+                        </p>
+                      </motion.div>
+
+                      <motion.div
+                        className="absolute top-4 right-4 w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+                        style={{
+                          boxShadow: '0 0 20px rgba(255, 211, 0, 0.6)',
+                        }}
+                      >
+                        <ExternalLink className="text-black" size={20} />
+                      </motion.div>
+                    </div>
+
+                    <div className="absolute bottom-0 left-0 right-0 h-1 bg-yellow-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+                  </motion.div>
+                </motion.div>
+              ))}
             </motion.div>
+          </AnimatePresence>
+
+          {totalPages > 1 && (
+            <>
+              <motion.button
+                onClick={prevPage}
+                disabled={currentPage === 0}
+                className={`absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-16 w-12 h-12 rounded-full flex items-center justify-center transition-all ${
+                  currentPage === 0
+                    ? 'bg-gray-800 text-gray-600 cursor-not-allowed'
+                    : 'bg-yellow-400 text-black hover:bg-yellow-300'
+                }`}
+                whileHover={currentPage > 0 ? { scale: 1.1 } : {}}
+                whileTap={currentPage > 0 ? { scale: 0.9 } : {}}
+                style={{
+                  boxShadow: currentPage > 0 ? '0 0 20px rgba(255, 211, 0, 0.5)' : 'none',
+                }}
+              >
+                <ChevronLeft size={24} />
+              </motion.button>
+
+              <motion.button
+                onClick={nextPage}
+                disabled={currentPage === totalPages - 1}
+                className={`absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-16 w-12 h-12 rounded-full flex items-center justify-center transition-all ${
+                  currentPage === totalPages - 1
+                    ? 'bg-gray-800 text-gray-600 cursor-not-allowed'
+                    : 'bg-yellow-400 text-black hover:bg-yellow-300'
+                }`}
+                whileHover={currentPage < totalPages - 1 ? { scale: 1.1 } : {}}
+                whileTap={currentPage < totalPages - 1 ? { scale: 0.9 } : {}}
+                style={{
+                  boxShadow: currentPage < totalPages - 1 ? '0 0 20px rgba(255, 211, 0, 0.5)' : 'none',
+                }}
+              >
+                <ChevronRight size={24} />
+              </motion.button>
+            </>
+          )}
+        </div>
+
+        <div className="flex items-center justify-center gap-3 mt-12">
+          {Array.from({ length: totalPages }).map((_, index) => (
+            <motion.button
+              key={index}
+              onClick={() => {
+                setDirection(index > currentPage ? 1 : -1);
+                setCurrentPage(index);
+              }}
+              className={`h-2 rounded-full transition-all ${
+                index === currentPage ? 'w-12 bg-yellow-400' : 'w-2 bg-gray-700 hover:bg-gray-600'
+              }`}
+              whileHover={{ scale: 1.2 }}
+              style={{
+                boxShadow: index === currentPage ? '0 0 10px rgba(255, 211, 0, 0.6)' : 'none',
+              }}
+            />
           ))}
         </div>
 
@@ -141,6 +277,9 @@ const Projects = () => {
           transition={{ duration: 0.8, delay: 0.8 }}
           className="text-center mt-16"
         >
+          <p className="text-gray-400 mb-4">
+            Page {currentPage + 1} of {totalPages}
+          </p>
           <motion.a
             href="#"
             className="inline-flex items-center gap-2 px-8 py-4 border-2 border-yellow-400 text-yellow-400 font-semibold rounded-full hover:bg-yellow-400 hover:text-black transition-all"

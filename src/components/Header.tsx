@@ -9,10 +9,8 @@ const Header = ({ activeSection }: HeaderProps) => {
     { id: 'home', label: 'Home' },
     { id: 'about', label: 'About' },
     { id: 'services', label: 'Services' },
-   // { id: 'expertise', label: 'Expertise' },
     { id: 'projects', label: 'Projects' },
-   // { id: 'experience', label: 'Experience' },
-   // { id: 'education', label: 'Education' },
+    { id: 'testimonials', label: 'Testimonials' },
     { id: 'contact', label: 'Contact' },
   ];
 
