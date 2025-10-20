@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Mail, Instagram, Linkedin, Heart, ArrowUp } from 'lucide-react';
+import { Mail, Instagram, Linkedin, Heart, ArrowUp, Phone,  } from 'lucide-react';
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -28,9 +28,10 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { icon: Mail, label: 'Email', href: 'mailto:robin@example.com' },
-    { icon: Instagram, label: 'Instagram', href: '#' },
-    { icon: Linkedin, label: 'LinkedIn', href: '#' },
+    { icon: Mail, label: 'Email', href: 'mailto:robicreationspace@gmail.com' },
+    { icon: Phone, label: 'Phone', href: 'tel:+919500318204' },
+    { icon: Instagram, label: 'Instagram', href: 'https://www.instagram.com/robi.designz?igsh=MTEwcnplYXFidmoyZA%3D%3D&utm_source=qr' },
+    { icon: Linkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/r2025-designer/' },
   ];
 
   return (
@@ -60,7 +61,7 @@ const Footer = () => {
             <p className="text-gray-400 leading-relaxed mb-6">
               Crafting bold visuals that tell stories through innovative design solutions.
             </p>
-            <div className="flex gap-4">
+            <div className="flex gap-4 flex-wrap">
               {socialLinks.map((link, index) => (
                 <motion.a
                   key={link.label}
@@ -146,6 +147,17 @@ const Footer = () => {
               <p className="text-gray-400">
                 Have a project in mind? Let's work together to create something amazing.
               </p>
+              <div className="space-y-3">
+                <motion.a
+                  href="tel:+919500318204"
+                  className="flex items-center gap-3 text-gray-400 hover:text-yellow-400 transition-colors"
+                  whileHover={{ x: 5 }}
+                >
+                  <Phone size={18} />
+                  <span>+91 95003 18204</span>
+                </motion.a>
+              
+              </div>
               <motion.button
                 onClick={() => scrollToSection('contact')}
                 className="px-6 py-3 bg-yellow-400 text-black font-semibold rounded-full hover:bg-yellow-300 transition-colors w-full"
@@ -170,17 +182,16 @@ const Footer = () => {
         >
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-gray-500 text-sm text-center md:text-left">
-              © 2024 Robin G. All rights reserved. Designed with{' '}
-              <Heart className="inline w-4 h-4 text-yellow-400 fill-yellow-400" /> and passion.
+              © 2025 Robidesignz.in . All rights reserved. 
             </p>
-            <div className="flex items-center gap-6">
+            {/* <div className="flex items-center gap-6">
               <button className="text-gray-500 hover:text-yellow-400 text-sm transition-colors">
                 Privacy Policy
               </button>
               <button className="text-gray-500 hover:text-yellow-400 text-sm transition-colors">
                 Terms of Service
               </button>
-            </div>
+            </div> */}
           </div>
         </motion.div>
       </div>

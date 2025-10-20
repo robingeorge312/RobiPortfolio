@@ -23,7 +23,7 @@ const Education = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <div className="py-32 px-6 relative" ref={ref}>
+    <div className="py-20 px-6 relative" ref={ref}>
       <div className="container mx-auto max-w-4xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

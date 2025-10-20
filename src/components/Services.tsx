@@ -26,8 +26,8 @@ const services = [
   },
   {
     icon: Lightbulb,
-    title: 'Creative Direction',
-    description: 'Guiding ideas from concept to execution with a focus on storytelling and strategy.',
+    title: 'Digital & Print Design',
+    description: 'Crafting engaging designs for both digital and print media that effectively communicate your message.',
   },
   {
     icon: Box,
@@ -44,7 +44,7 @@ const Services = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <div className="py-32 px-6 relative" ref={ref}>
+    <div className="py-20 px-6 relative" ref={ref}>
       <div className="container mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

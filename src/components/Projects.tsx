@@ -164,7 +164,7 @@ const Projects = () => {
   };
 
   return (
-    <div className="py-32 px-6 relative overflow-hidden" ref={ref}>
+    <div className="py-20 px-6 relative overflow-hidden" ref={ref}>
       <div className="container mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -232,7 +232,6 @@ const Projects = () => {
                       className="absolute inset-0 w-full h-full object-cover"
                     />
 
-                    <div className={`absolute inset-0 bg-gradient-to-br ${project.color}`} />
 
                     <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-300" />
 
@@ -246,29 +245,6 @@ const Projects = () => {
                       }}
                     />
 
-                    <div className="absolute inset-0 flex flex-col items-center justify-center p-6">
-                      <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileHover={{ opacity: 1, y: 0 }}
-                        className="text-center"
-                      >
-                        <h3 className="text-2xl font-bold text-white mb-2">
-                          {project.title}
-                        </h3>
-                        <p className="text-yellow-400 font-medium">
-                          {project.category}
-                        </p>
-                      </motion.div>
-
-                      <motion.div
-                        className="absolute top-4 right-4 w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
-                        style={{
-                          boxShadow: '0 0 20px rgba(255, 211, 0, 0.6)',
-                        }}
-                      >
-                        <ExternalLink className="text-black" size={20} />
-                      </motion.div>
-                    </div>
 
                     <div className="absolute bottom-0 left-0 right-0 h-1 bg-yellow-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
                   </motion.div>
