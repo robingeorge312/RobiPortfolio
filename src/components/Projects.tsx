@@ -8,86 +8,110 @@ const allProjects = [
     title: 'Urban Brand Identity',
     category: 'Brand Design',
     color: 'from-yellow-400/20 to-orange-400/20',
-    image: 'https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: 'https://res.cloudinary.com/dhsnpynrl/image/upload/v1760985685/7_1.5x_lfcluc.png',
     description: 'Complete brand identity redesign for a modern urban lifestyle brand.',
   },
   {
     title: 'Festival Poster Series',
     category: 'Poster Design',
     color: 'from-yellow-400/20 to-green-400/20',
-    image: 'https://images.pexels.com/photos/1389429/pexels-photo-1389429.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: 'https://res.cloudinary.com/dhsnpynrl/image/upload/v1760882883/Cushion_sofa_u5vu0a.png',
     description: 'Eye-catching poster series for a summer music festival.',
   },
   {
     title: 'Luxury Packaging',
     category: 'Packaging Design',
     color: 'from-yellow-400/20 to-blue-400/20',
-    image: 'https://images.pexels.com/photos/3738088/pexels-photo-3738088.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: 'https://res.cloudinary.com/dhsnpynrl/image/upload/v1760882881/Furniture_Design_1_qb4xwe.png',
     description: 'Premium packaging design for luxury cosmetics brand.',
   },
   {
     title: 'Tech Startup Branding',
     category: 'Brand Design',
     color: 'from-yellow-400/20 to-purple-400/20',
-    image: 'https://images.pexels.com/photos/326503/pexels-photo-326503.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: 'https://res.cloudinary.com/dhsnpynrl/image/upload/v1760882856/Shawarma_nr4r0a.png',
     description: 'Modern and innovative branding for a tech startup.',
   },
   {
     title: 'Music Event Poster',
     category: 'Poster Design',
     color: 'from-yellow-400/20 to-pink-400/20',
-    image: 'https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: 'https://res.cloudinary.com/dhsnpynrl/image/upload/v1760882855/C1-2_wcsxr4.png',
     description: 'Bold and vibrant poster design for a live music event.',
   },
   {
     title: 'Organic Product Line',
     category: 'Packaging Design',
     color: 'from-yellow-400/20 to-teal-400/20',
-    image: 'https://images.pexels.com/photos/3735218/pexels-photo-3735218.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: 'https://res.cloudinary.com/dhsnpynrl/image/upload/v1760882855/Health_care_social_media_post_sozteo.png',
     description: 'Natural and eco-friendly packaging for organic products.',
   },
   {
     title: 'Fashion Brand Rebrand',
     category: 'Brand Design',
     color: 'from-yellow-400/20 to-red-400/20',
-    image: 'https://images.pexels.com/photos/1148957/pexels-photo-1148957.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: 'https://res.cloudinary.com/dhsnpynrl/image/upload/v1760882858/Real_Estate_1_xinta9.png',
     description: 'Complete rebrand for established fashion label.',
   },
   {
     title: 'Concert Poster Collection',
     category: 'Poster Design',
     color: 'from-yellow-400/20 to-cyan-400/20',
-    image: 'https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: 'https://res.cloudinary.com/dhsnpynrl/image/upload/v1760883126/Dual_Rhythm_Music_Event_Poster_2x_bewgkn.png',
     description: 'Series of promotional posters for concert venues.',
   },
   {
     title: 'Craft Beer Packaging',
     category: 'Packaging Design',
     color: 'from-yellow-400/20 to-amber-400/20',
-    image: 'https://images.pexels.com/photos/1435897/pexels-photo-1435897.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: 'https://res.cloudinary.com/dhsnpynrl/image/upload/v1760986955/Timeless_Pursuit_1.25x_j1pli2.png',
     description: 'Creative packaging design for craft brewery.',
   },
   {
     title: 'Wellness Brand Identity',
     category: 'Brand Design',
     color: 'from-yellow-400/20 to-emerald-400/20',
-    image: 'https://images.pexels.com/photos/3823039/pexels-photo-3823039.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: 'https://res.cloudinary.com/dhsnpynrl/image/upload/v1760987345/Juice_Can_Mockup_2x_kw3zwb.jpg',
     description: 'Holistic branding for wellness and meditation app.',
   },
   {
     title: 'Art Exhibition Poster',
     category: 'Poster Design',
     color: 'from-yellow-400/20 to-violet-400/20',
-    image: 'https://images.pexels.com/photos/1839919/pexels-photo-1839919.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: 'https://res.cloudinary.com/dhsnpynrl/image/upload/v1760987347/Glossy_Standing_Pouch_Mockup_PSD_2x_iuahsx.jpg',
     description: 'Artistic poster design for contemporary art exhibition.',
   },
   {
     title: 'Gourmet Food Packaging',
     category: 'Packaging Design',
     color: 'from-yellow-400/20 to-lime-400/20',
-    image: 'https://images.pexels.com/photos/3850838/pexels-photo-3850838.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: 'https://res.cloudinary.com/dhsnpynrl/image/upload/v1760883098/Artboard_1_1.5x_kcqxrr.png',
     description: 'Elegant packaging for gourmet food products.',
   },
+  {
+    title: 'Gourmet Food Packaging',
+    category: 'Packaging Design',
+    color: 'from-yellow-400/20 to-lime-400/20',
+    image: 'https://res.cloudinary.com/dhsnpynrl/image/upload/v1760988186/RC_Bakes_Logo_JPG-11_osbql9.jpg',
+    description: 'Elegant packaging for gourmet food products.',
+  },
+    {
+    title: 'Gourmet Food Packaging',
+    category: 'Packaging Design',
+    color: 'from-yellow-400/20 to-lime-400/20',
+    image: 'https://res.cloudinary.com/dhsnpynrl/image/upload/v1760988408/Moibook_pooo4o.png',
+    description: 'Elegant packaging for gourmet food products.',
+  },
+  {
+    title: 'Gourmet Food Packaging',
+    category: 'Packaging Design',
+    color: 'from-yellow-400/20 to-lime-400/20',
+    image: 'https://res.cloudinary.com/dhsnpynrl/image/upload/v1760988187/Ruga_Wordmark_presentation1-11_pobmul.jpg',
+    description: 'Elegant packaging for gourmet food products.',
+  },
+
+ 
+
 ];
 
 interface Project {
@@ -165,14 +189,14 @@ const Projects = () => {
           </motion.div>
 
           <h2 className="text-4xl md:text-5xl font-bold">
-            Selected{' '}
+            Recent {' '}
             <span
               className="text-yellow-400"
               style={{
                 textShadow: '0 0 30px rgba(255, 211, 0, 0.5)',
               }}
             >
-              Works
+              Projects
             </span>
           </h2>
         </motion.div>
@@ -321,7 +345,7 @@ const Projects = () => {
             Page {currentPage + 1} of {totalPages}
           </p>
           <motion.a
-            href="#"
+            href="https://www.behance.net/robidesignz"
             className="inline-flex items-center gap-2 px-8 py-4 border-2 border-yellow-400 text-yellow-400 font-semibold rounded-full hover:bg-yellow-400 hover:text-black transition-all"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -368,9 +392,7 @@ const Projects = () => {
                 src={selectedProject.image}
                 alt={selectedProject.title}
                 className="max-w-full max-h-[90vh] w-auto h-auto object-contain rounded-2xl border-4 border-yellow-400/40"
-                style={{
-                  boxShadow: '0 0 60px rgba(255, 211, 0, 0.4)',
-                }}
+            
               />
             </motion.div>
           </motion.div>

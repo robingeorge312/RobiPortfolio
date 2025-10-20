@@ -30,6 +30,7 @@ const Expertise = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-black via-yellow-400/5 to-black" />
 
       <div className="container mx-auto max-w-6xl relative z-10">
+        {/* Header Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -65,7 +66,9 @@ const Expertise = () => {
           </h2>
         </motion.div>
 
+        {/* Skills + Tools Section */}
         <div className="grid md:grid-cols-2 gap-12">
+          {/* Expertise Column */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
@@ -114,6 +117,7 @@ const Expertise = () => {
             </div>
           </motion.div>
 
+          {/* Tools Column */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
@@ -145,10 +149,7 @@ const Expertise = () => {
                   transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
                   className="group"
                 >
-                  <div className="flex items-center gap-4 p-4 bg-gradient-to-l from-yellow-400/10 to-transparent rounded-lg border-r-4 border-yellow-400 hover:border-yellow-300 transition-all">
-                    <span className="text-lg text-gray-300 group-hover:text-white transition-colors flex-1 text-right">
-                      {tool}
-                    </span>
+                  <div className="flex items-center gap-4 p-4 bg-gradient-to-r from-yellow-400/10 to-transparent rounded-lg border-l-4 border-yellow-400 hover:border-yellow-300 transition-all">
                     <motion.div
                       className="w-2 h-2 rounded-full bg-yellow-400"
                       whileHover={{ scale: 2 }}
@@ -156,6 +157,9 @@ const Expertise = () => {
                         boxShadow: '0 0 10px rgba(255, 211, 0, 0.8)',
                       }}
                     />
+                    <span className="text-lg text-gray-300 group-hover:text-white transition-colors flex-1 text-left">
+                      {tool}
+                    </span>
                   </div>
                 </motion.div>
               ))}
