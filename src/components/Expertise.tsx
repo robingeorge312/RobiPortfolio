@@ -6,10 +6,10 @@ import { Sparkles, Wrench } from 'lucide-react';
 const expertise = [
   'Typography',
   'Layout Design',
-  'Visual Composition',
   'Brand Strategy',
   'Creative Direction',
   'Color Theory',
+  'Visual Storytelling',
 ];
 
 const tools = [
