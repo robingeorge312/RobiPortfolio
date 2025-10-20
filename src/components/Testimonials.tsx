@@ -1,43 +1,43 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
-import { Quote, ChevronLeft, ChevronRight, Star } from 'lucide-react';
+import { Quote, ChevronLeft, ChevronRight, } from 'lucide-react';
 
 const testimonials = [
   {
-    name: 'Sarah Johnson',
-    role: 'CEO, TechStart',
+    name: 'Ranjitha Chithambaram',
+    role: 'RC Bakes',
     content: 'Robin transformed our brand identity completely. The attention to detail and creative vision exceeded all expectations. Truly a master of visual storytelling.',
     rating: 5,
-    image: 'SJ',
+    image: 'RC',
   },
   {
-    name: 'Michael Chen',
-    role: 'Marketing Director, Urban Brands',
-    content: 'Working with Robin was an absolute pleasure. The poster designs brought our campaign to life in ways we never imagined possible.',
+    name: 'Muthupandi',
+    role: 'Founder, Moibook',
+    content: 'Working with you was smooth and effortless. He understood our ideas quickly and came up with designs that looked great across our social media and app. The visuals he created gave our brand a more modern and polished look.',
     rating: 5,
-    image: 'MC',
+    image: 'MP',
   },
   {
-    name: 'Emily Rodriguez',
-    role: 'Founder, Organic Goods',
-    content: 'The packaging design Robin created for our product line has been a game-changer. Sales increased by 40% within the first month!',
+    name: 'Manikanda raja',
+    role: 'Sri Sastha Paruthipal',
+    content: 'We absolutely loved the logo Robin designed for us. It’s simple yet carries the traditional feel we wanted for our brand. He managed to keep it neat, professional, and exactly in line with our brand story.',
     rating: 5,
-    image: 'ER',
+    image: 'MR',
   },
   {
-    name: 'David Williams',
-    role: 'Creative Director, Studio Flow',
-    content: 'Robin brings a unique blend of artistic creativity and strategic thinking. Every project is executed with precision and passion.',
+    name: 'Bibin ',
+    role: 'Marvel Mobiles',
+    content: 'Your designs gave our brand a fresh and energetic look. The posters and social media creatives he made helped us attract more customers and keep our page active. He understood our style right away and delivered exactly what we needed.',
     rating: 5,
-    image: 'DW',
+    image: 'BB',
   },
   {
-    name: 'Lisa Thompson',
-    role: 'Brand Manager, Fashion Hub',
-    content: 'An exceptional designer who understands the power of visual communication. Robin\'s work speaks volumes and delivers results.',
+    name: 'Jegatheeswaran',
+    role: 'Digital Marketer',
+    content: 'Robin was a great support for our design projects. His creativity and quick turnaround made a big difference for our clients. The designs he created helped us improve engagement and gave our campaigns a more professional edge',
     rating: 5,
-    image: 'LT',
+    image: 'JG',
   },
 ];
 
@@ -82,7 +82,7 @@ const Testimonials = () => {
   };
 
   return (
-    <div className="py-32 px-6 relative overflow-hidden" ref={ref}>
+    <div className="py-20 px-6 relative overflow-hidden" ref={ref}>
       <div className="absolute inset-0 bg-gradient-to-b from-black via-yellow-400/5 to-black" />
 
       <div className="container mx-auto max-w-5xl relative z-10">
@@ -169,15 +169,7 @@ const Testimonials = () => {
                     transition={{ duration: 0.6, delay: 0.4 }}
                     className="mb-8"
                   >
-                    <div className="flex gap-1 mb-6">
-                      {Array.from({ length: testimonials[currentIndex].rating }).map((_, i) => (
-                        <Star
-                          key={i}
-                          className="text-yellow-400 fill-yellow-400"
-                          size={20}
-                        />
-                      ))}
-                    </div>
+                   
 
                     <p className="text-xl md:text-2xl text-gray-300 leading-relaxed mb-8 italic">
                       "{testimonials[currentIndex].content}"

@@ -1,40 +1,42 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Award, Briefcase, Users, TrendingUp } from 'lucide-react';
+import { Award, Briefcase, Users, } from 'lucide-react';
 
 const experiences = [
   {
     icon: Briefcase,
-    title: 'Graphic Designer',
-    description: 'Freelance Graphic Designer specializing in branding, social media design, poster design and packaging design. I help businesses create cohesive visual identities that communicate their story with clarity and style. My approach blends creativity with strategy, ensuring every design makes a lasting impression.',
+    title: 'Freelance Graphic Designer',
+    company: 'Self-employed',
+    description:
+      'Worked with 15+ clients across industries like mobile shops, furniture brands, startups, bakeries, and digital agencies. Created brand identities, packaging, posters, and social media creatives that combine creativity with strategy, giving each design purpose and personality.'
   },
+
   {
     icon: Users,
     title: 'Graphic Design Intern',
-    description: 'During my internship, I contributed to creating banners, posters, and design assets for product websites and multiple client campaigns. I focused on maintaining consistent visual identity across all platforms, including Instagram, LinkedIn, and Facebook. Collaborating closely with the marketing and product teams, I learned to translate ideas into engaging, on-brand visuals with quick turnarounds and attention to detail.',
+    company: 'Kyvag Digital Pvt Limited',
+    description:
+      'Designed banners, posters, and assets for the company and client websites, maintaining brand consistency. Created social media visuals for Instagram, LinkedIn, and Facebook to support product launches and campaigns, learning to translate ideas into engaging visuals.'
   },
   {
     icon: Award,
-    title: 'Jr. Software Engineer',
-    description: 'As a Junior Software Engineer, I collaborated with cross-functional teams, including UI/UX designers and product managers, to build responsive, user-focused web applications. I developed clean and efficient front-end interfaces using HTML, CSS, JavaScript, and React, ensuring visual consistency and seamless user experiences. This role strengthened my attention to design detail and enhanced my understanding of how technology and creativity work together to deliver impactful digital solutions.',
-  },
-  {
-    icon: TrendingUp,
-    title: 'Portfolio Growth',
-    description: 'Successfully completed 100+ projects ranging from startups to established brands.',
-  },
-];
+    title: 'Junior Software Engineer',
+    company: 'Cognizant Technology Solutions',
+    description:
+      'Developed responsive web applications with HTML, CSS, JavaScript, and React while collaborating with cross-functional teams. This technical experience strengthens my design work with attention to detail and digital feasibility',
+  }];
 
 const Experience = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <div className="py-32 px-6 relative overflow-hidden" ref={ref}>
+    <div className="py-20 px-6 relative overflow-hidden" ref={ref}>
       <div className="absolute inset-0 bg-gradient-to-b from-black via-yellow-400/5 to-black" />
 
       <div className="container mx-auto max-w-6xl relative z-10">
+        {/* Header Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -70,7 +72,9 @@ const Experience = () => {
           </h2>
         </motion.div>
 
+        {/* Timeline Section */}
         <div className="relative">
+          {/* Center Line */}
           <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-yellow-400 to-transparent hidden md:block" />
 
           <div className="space-y-16">
@@ -80,10 +84,10 @@ const Experience = () => {
                 initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
                 animate={isInView ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.8, delay: index * 0.2 }}
-                className={`flex flex-col md:flex-row items-center gap-8 ${
-                  index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-                }`}
+                className={`flex flex-col md:flex-row items-center gap-8 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
+                  }`}
               >
+                {/* Card */}
                 <div className="flex-1">
                   <motion.div
                     className="p-8 bg-gradient-to-br from-gray-900 to-black border border-yellow-400/20 rounded-2xl"
@@ -103,17 +107,22 @@ const Experience = () => {
                       </motion.div>
 
                       <div className="flex-1">
-                        <h3 className="text-xl font-bold text-white mb-2">
-                          {exp.title}
-                        </h3>
-                        <p className="text-gray-400 leading-relaxed">
-                          {exp.description}
+                        <h3 className="text-xl font-bold text-white">{exp.title}</h3>
+                        <p
+                          className="text-yellow-400 font-medium mb-3"
+                          style={{
+                            textShadow: '0 0 10px rgba(255, 211, 0, 0.3)',
+                          }}
+                        >
+                          {exp.company}
                         </p>
+                        <p className="text-gray-400 leading-relaxed">{exp.description}</p>
                       </div>
                     </div>
                   </motion.div>
                 </div>
 
+                {/* Timeline Dot */}
                 <motion.div
                   className="w-8 h-8 rounded-full bg-yellow-400 flex-shrink-0 hidden md:flex items-center justify-center"
                   whileHover={{ scale: 1.5 }}

@@ -1,76 +1,133 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
-import { ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ExternalLink, ChevronLeft, ChevronRight, X } from 'lucide-react';
 
 const allProjects = [
   {
     title: 'Urban Brand Identity',
     category: 'Brand Design',
     color: 'from-yellow-400/20 to-orange-400/20',
+    image: 'https://res.cloudinary.com/dhsnpynrl/image/upload/v1760985685/7_1.5x_lfcluc.png',
+    description: 'Complete brand identity redesign for a modern urban lifestyle brand.',
   },
   {
     title: 'Festival Poster Series',
     category: 'Poster Design',
     color: 'from-yellow-400/20 to-green-400/20',
+    image: 'https://res.cloudinary.com/dhsnpynrl/image/upload/v1760882883/Cushion_sofa_u5vu0a.png',
+    description: 'Eye-catching poster series for a summer music festival.',
   },
   {
     title: 'Luxury Packaging',
     category: 'Packaging Design',
     color: 'from-yellow-400/20 to-blue-400/20',
+    image: 'https://res.cloudinary.com/dhsnpynrl/image/upload/v1760882881/Furniture_Design_1_qb4xwe.png',
+    description: 'Premium packaging design for luxury cosmetics brand.',
   },
   {
     title: 'Tech Startup Branding',
     category: 'Brand Design',
     color: 'from-yellow-400/20 to-purple-400/20',
+    image: 'https://res.cloudinary.com/dhsnpynrl/image/upload/v1760882856/Shawarma_nr4r0a.png',
+    description: 'Modern and innovative branding for a tech startup.',
   },
   {
     title: 'Music Event Poster',
     category: 'Poster Design',
     color: 'from-yellow-400/20 to-pink-400/20',
+    image: 'https://res.cloudinary.com/dhsnpynrl/image/upload/v1760882855/C1-2_wcsxr4.png',
+    description: 'Bold and vibrant poster design for a live music event.',
   },
   {
     title: 'Organic Product Line',
     category: 'Packaging Design',
     color: 'from-yellow-400/20 to-teal-400/20',
+    image: 'https://res.cloudinary.com/dhsnpynrl/image/upload/v1760882855/Health_care_social_media_post_sozteo.png',
+    description: 'Natural and eco-friendly packaging for organic products.',
   },
   {
     title: 'Fashion Brand Rebrand',
     category: 'Brand Design',
     color: 'from-yellow-400/20 to-red-400/20',
+    image: 'https://res.cloudinary.com/dhsnpynrl/image/upload/v1760882858/Real_Estate_1_xinta9.png',
+    description: 'Complete rebrand for established fashion label.',
   },
   {
     title: 'Concert Poster Collection',
     category: 'Poster Design',
     color: 'from-yellow-400/20 to-cyan-400/20',
+    image: 'https://res.cloudinary.com/dhsnpynrl/image/upload/v1760883126/Dual_Rhythm_Music_Event_Poster_2x_bewgkn.png',
+    description: 'Series of promotional posters for concert venues.',
   },
   {
     title: 'Craft Beer Packaging',
     category: 'Packaging Design',
     color: 'from-yellow-400/20 to-amber-400/20',
+    image: 'https://res.cloudinary.com/dhsnpynrl/image/upload/v1760986955/Timeless_Pursuit_1.25x_j1pli2.png',
+    description: 'Creative packaging design for craft brewery.',
   },
   {
     title: 'Wellness Brand Identity',
     category: 'Brand Design',
     color: 'from-yellow-400/20 to-emerald-400/20',
+    image: 'https://res.cloudinary.com/dhsnpynrl/image/upload/v1760987345/Juice_Can_Mockup_2x_kw3zwb.jpg',
+    description: 'Holistic branding for wellness and meditation app.',
   },
   {
     title: 'Art Exhibition Poster',
     category: 'Poster Design',
     color: 'from-yellow-400/20 to-violet-400/20',
+    image: 'https://res.cloudinary.com/dhsnpynrl/image/upload/v1760987347/Glossy_Standing_Pouch_Mockup_PSD_2x_iuahsx.jpg',
+    description: 'Artistic poster design for contemporary art exhibition.',
   },
   {
     title: 'Gourmet Food Packaging',
     category: 'Packaging Design',
     color: 'from-yellow-400/20 to-lime-400/20',
+    image: 'https://res.cloudinary.com/dhsnpynrl/image/upload/v1760883098/Artboard_1_1.5x_kcqxrr.png',
+    description: 'Elegant packaging for gourmet food products.',
   },
+  {
+    title: 'Gourmet Food Packaging',
+    category: 'Packaging Design',
+    color: 'from-yellow-400/20 to-lime-400/20',
+    image: 'https://res.cloudinary.com/dhsnpynrl/image/upload/v1760988186/RC_Bakes_Logo_JPG-11_osbql9.jpg',
+    description: 'Elegant packaging for gourmet food products.',
+  },
+    {
+    title: 'Gourmet Food Packaging',
+    category: 'Packaging Design',
+    color: 'from-yellow-400/20 to-lime-400/20',
+    image: 'https://res.cloudinary.com/dhsnpynrl/image/upload/v1760988408/Moibook_pooo4o.png',
+    description: 'Elegant packaging for gourmet food products.',
+  },
+  {
+    title: 'Gourmet Food Packaging',
+    category: 'Packaging Design',
+    color: 'from-yellow-400/20 to-lime-400/20',
+    image: 'https://res.cloudinary.com/dhsnpynrl/image/upload/v1760988187/Ruga_Wordmark_presentation1-11_pobmul.jpg',
+    description: 'Elegant packaging for gourmet food products.',
+  },
+
+ 
+
 ];
+
+interface Project {
+  title: string;
+  category: string;
+  color: string;
+  image: string;
+  description: string;
+}
 
 const Projects = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [currentPage, setCurrentPage] = useState(0);
   const [direction, setDirection] = useState(0);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const itemsPerPage = 6;
   const totalPages = Math.ceil(allProjects.length / itemsPerPage);
@@ -107,7 +164,7 @@ const Projects = () => {
   };
 
   return (
-    <div className="py-32 px-6 relative overflow-hidden" ref={ref}>
+    <div className="py-20 px-6 relative overflow-hidden" ref={ref}>
       <div className="container mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -132,14 +189,14 @@ const Projects = () => {
           </motion.div>
 
           <h2 className="text-4xl md:text-5xl font-bold">
-            Selected{' '}
+            Recent {' '}
             <span
               className="text-yellow-400"
               style={{
                 textShadow: '0 0 30px rgba(255, 211, 0, 0.5)',
               }}
             >
-              Works
+              Projects
             </span>
           </h2>
         </motion.div>
@@ -165,10 +222,16 @@ const Projects = () => {
                 >
                   <motion.div
                     className="group relative aspect-square rounded-2xl overflow-hidden cursor-pointer"
+                    onClick={() => setSelectedProject(project)}
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <div className={`absolute inset-0 bg-gradient-to-br ${project.color}`} />
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
+
 
                     <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-300" />
 
@@ -182,29 +245,6 @@ const Projects = () => {
                       }}
                     />
 
-                    <div className="absolute inset-0 flex flex-col items-center justify-center p-6">
-                      <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileHover={{ opacity: 1, y: 0 }}
-                        className="text-center"
-                      >
-                        <h3 className="text-2xl font-bold text-white mb-2">
-                          {project.title}
-                        </h3>
-                        <p className="text-yellow-400 font-medium">
-                          {project.category}
-                        </p>
-                      </motion.div>
-
-                      <motion.div
-                        className="absolute top-4 right-4 w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
-                        style={{
-                          boxShadow: '0 0 20px rgba(255, 211, 0, 0.6)',
-                        }}
-                      >
-                        <ExternalLink className="text-black" size={20} />
-                      </motion.div>
-                    </div>
 
                     <div className="absolute bottom-0 left-0 right-0 h-1 bg-yellow-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
                   </motion.div>
@@ -281,7 +321,7 @@ const Projects = () => {
             Page {currentPage + 1} of {totalPages}
           </p>
           <motion.a
-            href="#"
+            href="https://www.behance.net/robidesignz"
             className="inline-flex items-center gap-2 px-8 py-4 border-2 border-yellow-400 text-yellow-400 font-semibold rounded-full hover:bg-yellow-400 hover:text-black transition-all"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -294,6 +334,46 @@ const Projects = () => {
           </motion.a>
         </motion.div>
       </div>
+
+      <AnimatePresence>
+        {selectedProject && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/95 backdrop-blur-md"
+            onClick={() => setSelectedProject(null)}
+          >
+            <motion.button
+              onClick={() => setSelectedProject(null)}
+              className="absolute top-6 right-6 z-20 w-14 h-14 bg-yellow-400 text-black rounded-full flex items-center justify-center hover:bg-yellow-300 transition-colors"
+              whileHover={{ scale: 1.1, rotate: 90 }}
+              whileTap={{ scale: 0.9 }}
+              style={{
+                boxShadow: '0 0 40px rgba(255, 211, 0, 0.8)',
+              }}
+            >
+              <X size={28} />
+            </motion.button>
+
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="relative max-w-7xl max-h-[90vh] w-auto"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <img
+                src={selectedProject.image}
+                alt={selectedProject.title}
+                className="max-w-full max-h-[90vh] w-auto h-auto object-contain rounded-2xl border-4 border-yellow-400/40"
+            
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

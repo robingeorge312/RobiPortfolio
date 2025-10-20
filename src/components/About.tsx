@@ -7,7 +7,7 @@ const About = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <div className="py-32 px-6 relative overflow-hidden" ref={ref}>
+    <div className="py-20 px-6 relative overflow-hidden" ref={ref}>
       <div className="absolute inset-0 bg-gradient-to-b from-black via-yellow-400/5 to-black" />
 
       <div className="container mx-auto max-w-4xl relative z-10">
@@ -39,14 +39,14 @@ const About = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-4xl md:text-5xl font-bold mb-8"
           >
-            Crafting Visual{' '}
+            Visuals with {' '}
             <span
               className="text-yellow-400"
               style={{
                 textShadow: '0 0 30px rgba(255, 211, 0, 0.5)',
               }}
             >
-              Stories
+            Purpose
             </span>
           </motion.h2>
 
@@ -57,15 +57,11 @@ const About = () => {
             className="space-y-6"
           >
             <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
-              I'm a passionate graphic designer who believes that every visual should tell a compelling story.
-              My approach combines creative innovation with strategic thinking to deliver designs that not only
-              look stunning but also communicate meaningful messages.
+              I’m a passionate graphic designer with nearly two years of experience turning ideas into meaningful visuals. I’ve collaborated with over 15 clients across industries including mobile and furniture brands, startups, bakeries, beverage and food brands, and event management companies.
             </p>
 
             <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
-              With expertise spanning brand identity, poster design, and packaging, I transform ideas into
-              visual experiences that resonate with audiences and drive results. My mission is to create
-              work that's both artistically bold and strategically sound.
+              My work blends creativity and strategy to craft branding, packaging, and social media designs that connect with people and strengthen brand identity. Every project I take on is guided by curiosity, clarity, and the desire to create something truly memorable.
             </p>
 
             <motion.div
