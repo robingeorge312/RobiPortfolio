@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
-import { Mail, Instagram, Linkedin, Send } from 'lucide-react';
+import { Mail, Instagram, Linkedin, } from 'lucide-react';
 
 const Contact = () => {
   const ref = useRef(null);
@@ -158,7 +158,6 @@ const Contact = () => {
                 }}
               >
                 Send Message
-                <Send size={20} />
               </motion.button>
             </form>
           </motion.div>

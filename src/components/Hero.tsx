@@ -42,13 +42,51 @@ const Hero = () => {
 
       <div className="container mx-auto max-w-6xl relative z-10">
         <div className="grid md:grid-cols-2 gap-12 items-center">
+          {/* Image Section - Comes first on mobile */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="relative order-2 md:order-1"
+          >
+            <motion.div
+              className="relative w-full aspect-square max-w-md mx-auto"
+              animate={{
+                y: [0, -20, 0],
+              }}
+              transition={{
+                duration: 6,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            >
+              <div
+                className="absolute inset-0 rounded-full"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(255, 211, 0, 0.2) 0%, rgba(255, 211, 0, 0) 100%)',
+                  boxShadow: '0 0 100px rgba(255, 211, 0, 0.3)',
+                }}
+              />
+
+              <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-yellow-400/30">
+                <div className="w-full h-full bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center overflow-hidden">
+                  <img
+                    src="https://res.cloudinary.com/dhsnpynrl/image/upload/v1760884403/222profile_lre4m3.png"
+                    alt="Robin G - Graphic Designer"
+                    className="w-full h-full object-cover rounded-full hover:scale-105 transition-transform duration-700"
+                  />
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+
+          {/* Text Content Section - Comes second on mobile */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
+            className="order-1 md:order-2 text-center md:text-left"
           >
-
-
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -79,7 +117,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
-              className="text-lg text-gray-400 mb-8 leading-relaxed"
+              className="text-lg text-gray-400 mb-8 leading-relaxed max-w-xl mx-auto md:mx-0"
             >
               I bring creativity and strategy together to turn ideas into designs that inspire.
             </motion.p>
@@ -88,7 +126,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7 }}
-              className="flex flex-col sm:flex-row gap-4"
+              className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
             >
               <motion.button
                 onClick={scrollToProjects}
@@ -114,46 +152,7 @@ const Hero = () => {
                 <Download size={20} />
                 Download Resume
               </motion.a>
-
             </motion.div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="relative"
-          >
-           <motion.div
-  className="relative w-full aspect-square max-w-md mx-auto"
-  animate={{
-    y: [0, -20, 0],
-  }}
-  transition={{
-    duration: 6,
-    repeat: Infinity,
-    ease: "easeInOut"
-  }}
->
-  <div
-    className="absolute inset-0 rounded-full"
-    style={{
-      background: 'linear-gradient(135deg, rgba(255, 211, 0, 0.2) 0%, rgba(255, 211, 0, 0) 100%)',
-      boxShadow: '0 0 100px rgba(255, 211, 0, 0.3)',
-    }}
-  />
-
-  <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-yellow-400/30">
-    <div className="w-full h-full bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center overflow-hidden">
-      <img
-        src="https://res.cloudinary.com/dhsnpynrl/image/upload/v1760884403/222profile_lre4m3.png"
-        alt="Robin G - Graphic Designer"
-        className="w-full h-full object-cover rounded-full hover:scale-105 transition-transform duration-700"
-      />
-    </div>
-  </div>
-</motion.div>
-
           </motion.div>
         </div>
       </div>
