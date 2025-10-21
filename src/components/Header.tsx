@@ -34,7 +34,7 @@ const Header = ({ activeSection }: HeaderProps) => {
             whileHover={{ scale: 1.05 }}
           >
             <span className="text-yellow-400">Robin</span>
-            <span className="text-white"> G.</span>
+            <span className="text-white"> G</span>
           </motion.div>
 
           <ul className="hidden md:flex items-center space-x-8">
