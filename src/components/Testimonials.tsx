@@ -14,7 +14,7 @@ const testimonials = [
   {
     name: 'Muthupandi',
     role: 'Founder, Moibook',
-    content: 'Working with you was smooth and effortless. He understood our ideas quickly and came up with designs that looked great across our social media and app. The visuals he created gave our brand a more modern and polished look.',
+    content: 'Working with you was smooth and effortless. you understood our ideas quickly and came up with designs that looked great across our social media and app. The visuals you created gave our brand a more modern and polished look.',
     rating: 5,
     image: 'MP',
   },
@@ -28,7 +28,7 @@ const testimonials = [
   {
     name: 'Bibin ',
     role: 'Marvel Mobiles',
-    content: 'Your designs gave our brand a fresh and energetic look. The posters and social media creatives he made helped us attract more customers and keep our page active. He understood our style right away and delivered exactly what we needed.',
+    content: 'Your designs gave our brand a fresh and energetic look. The posters and social media creatives you made helped us attract more customers and keep our page active. You understood our style right away and delivered exactly what we needed.',
     rating: 5,
     image: 'BB',
   },
