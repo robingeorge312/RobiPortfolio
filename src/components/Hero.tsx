@@ -138,7 +138,7 @@ const Hero = () => {
               >
                 View My Work
               </motion.button>
-              <motion.a
+              {/* <motion.a
                 href={Resume}
                 download="Robin_Graphic_Designer_Resume.pdf"
                 className="px-8 py-4 border-2 border-yellow-400 text-yellow-400 font-semibold rounded-full hover:bg-yellow-400 hover:text-black transition-all flex items-center justify-center gap-2"
@@ -150,7 +150,7 @@ const Hero = () => {
               >
                 <Download size={20} />
                 Download Resume
-              </motion.a>
+              </motion.a> */}
             </motion.div>
           </motion.div>
 
