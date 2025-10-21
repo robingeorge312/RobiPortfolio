@@ -205,7 +205,6 @@ const Hero = () => {
           ease: "easeInOut"
         }}
       >
-        <ArrowDown className="text-yellow-400" size={32} />
       </motion.div>
     </div>
   );
